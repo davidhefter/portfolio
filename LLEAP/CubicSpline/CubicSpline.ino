@@ -6,6 +6,7 @@
 #define direction 32 //Motor Direction Pin
 
 float velocity = 0;
+float pos = 0;
 
 void setup() {
   // code runs once:
