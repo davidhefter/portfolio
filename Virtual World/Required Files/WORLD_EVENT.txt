@@ -1,0 +1,53 @@
+How to trigger event:
+Clicking on any entity-free tile in the world triggers the event.
+
+What should happen when the event is triggered:
+- If a non mushroom background tile is clicked, it and six random background tiles surrounding it 
+  (unless there are fewer than six within bounds that aren't a bridge) are transformed into mushrooms.
+	Mushroom png created using Bing AI image creator, and self-edited
+- If a mushroom background tile is clicked, it and six random background tiles surrounding it 
+  (unless there are fewer than six within bounds that aren't a bridge) are transformed into either grass or flowers (50-50).
+- If a non mushroom background tile is clicked, a new Wizard entity is created at that spot.
+	Wizard sprite from https://lionheart963.itch.io/wizard.
+- If a mushroom background tile is clicked, a new Fairy entity is created at that spot.
+- Any Plants/Stumps within proximity of the event transform into a BigMushroom
+	BigMushroom png from https://clipart-library.com/clipart/2057172.htm
+- Any BigMushrooms within proximity of the event transform into Saplings
+- Any Dudes within proximity of the event transform into Skeletons.
+	Skeleton sprite from https://opengameart.org/content/pixel-skeleton
+- Any Skeletons within proximity of the event transform into DudeNotFulls.
+- Any Fairies within proximity of the event transform into Wizards.
+- Any Wizards within proximity of the event transform into DudeNotFulls.
+
+What the affected entities should do:
+- BigMushrooms have no activity, just like Stumps.
+- Dudes created from the event are DudeNotFulls.
+
+- Skeletons move towards Fairies and other Skeletons.
+- Skeletons convert Fairies into BigMushrooms when it reaches them.
+- Skeletons convert other Skeletons into Wizards when it reaches them.
+
+- Fairies now target Skeletons, Stumps, and BigMushrooms, with a priority on Skeletons and Mushrooms
+- Fairies now convert Skeletons to Dudes when it reaches them.
+- Fairies now convert Stumps and BigMushrooms to Saplings when it reaches them
+- Fairies now turn mushroom backgrounds into either grass or flower backgrounds when it walks on them.
+
+- Dudes now additionally move towards Wizards and BigMushrooms.
+- Dudes convert Wizards into Stumps when it reaches them.
+- Dudes convert Mushrooms into Fairies when it reaches them.
+
+What the new entity is and how it should behave:
+- Wizards move towards Trees, Stumps, Saplings, and Dudes.
+- Wizards turn Trees and Stumps into Mushrooms when it reaches them.
+- Wizards turn Saplings into Skeletons when it reaches them.
+- Wizards turn grass/flower background into mushroom backgrounds when it walks on them.
+
+
+Basic Transformation Rundown:
+- Wizard turns Trees, Stumps, and Dudes into BigMushrooms, Saplings into Skeletons
+- Fairy turns BigMushrooms and Stumps into Saplings, Skeletons into Dudes
+- Skeleton turns Skeletons into Wizards and Fairies into BigMushrooms
+- Dude turns BigMushrooms into Fairies and Wizards into Stumps
+
+Basic Transformation Rundown:
+- Dude turns Wizards into Stumps
